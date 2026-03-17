@@ -9,9 +9,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build with python-for-android
-        uses: digreatbrian/buildozer-actions@v2
+        uses: ArtemSBulgakov/buildozer-action@v1
         with:
           working-directory: .
+          command: buildozer -v android debug
        
       - name: Upload APK
         uses: actions/upload-artifact@v4
