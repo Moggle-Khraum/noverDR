@@ -2427,5 +2427,5 @@ class NovelApp(MDApp):
 
 
 if __name__ == "__main__":
-    Window.size = (380, 720)
+    #Window.size = (380, 720)
     NovelApp().run()
