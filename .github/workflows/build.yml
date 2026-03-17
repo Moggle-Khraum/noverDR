@@ -33,12 +33,11 @@ jobs:
 
       - name: Build with Buildozer
         run: |
-          # We clean the environment to prevent the __GNUC_PREREQ header leak
-          buildozer android clean
+          # We only run clean if the directory exists to avoid the FileNotFoundError
+          if [ -d ".buildozer" ]; then buildozer android clean; fi
           yes | buildozer android debug
         env:
           USER: runner
-          # Prevent the compiler from accidentally picking up host system headers
           C_INCLUDE_PATH: ""
           CPLUS_INCLUDE_PATH: ""
 
