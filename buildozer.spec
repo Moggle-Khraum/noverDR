@@ -6,8 +6,8 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,json,txt
 version = 0.1
 
-# Requirements for your script
-requirements = python3, kivy==master, kivymd==2.0.1rc1, requests, beautifulsoup4, charset-normalizer, urllib3, idna, certifi
+# Using stable kivy version
+requirements = python3, kivy, kivymd==2.0.1rc1, requests, beautifulsoup4, charset-normalizer, urllib3, idna, certifi
 
 orientation = portrait
 android.permissions = INTERNET, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE
@@ -17,7 +17,7 @@ android.ndk = 25b
 android.archs = arm64-v8a
 android.enable_androidx = True
 
-# Critical fix for cross-compilation header issues
+# Still keep p4a master as it contains necessary library fixes
 p4a.branch = master
 
 [buildozer]
