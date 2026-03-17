@@ -11,7 +11,7 @@ jobs:
       - name: Build with python-for-android
         uses: ArtemSBulgakov/buildozer-action@v1
         with:
-          working-directory: .
+          workdir: .
           command: buildozer -v android debug
        
       - name: Upload APK
