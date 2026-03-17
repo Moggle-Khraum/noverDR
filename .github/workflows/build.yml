@@ -33,13 +33,11 @@ jobs:
 
       - name: Build with Buildozer
         run: |
-          # We only run clean if the directory exists to avoid the FileNotFoundError
-          if [ -d ".buildozer" ]; then buildozer android clean; fi
+          # We remove the manual 'clean' to let buildozer manage its state
           yes | buildozer android debug
         env:
           USER: runner
-          C_INCLUDE_PATH: ""
-          CPLUS_INCLUDE_PATH: ""
+          # We removed the empty include paths here to fix the 'config.pxi' error
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
