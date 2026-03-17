@@ -13,7 +13,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      # Install all required system dependencies for Kivy/Buildozer
       - name: Install dependencies
         run: |
           sudo apt-get update
@@ -51,10 +50,13 @@ jobs:
             zip \
             liblzma-dev \
             autoconf \
+            automake \
             libtool \
             pkg-config \
             cmake \
-            ninja-build
+            ninja-build \
+            autoconf-archive \
+            libltdl-dev
 
       - name: Install Buildozer and Cython
         run: |
@@ -63,7 +65,7 @@ jobs:
 
       - name: Build with Buildozer
         run: |
-          # 'yes' automatically accepts the Android SDK licenses
+          # Use 'yes' to automatically accept Android SDK licenses
           yes | buildozer android debug
         env:
           USER: runner
