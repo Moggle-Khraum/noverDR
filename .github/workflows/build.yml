@@ -8,11 +8,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v1
+      - name: Build with python-for-android
+        uses: digreatbrian/buildozer-actions@v2
         with:
-          workdir: .
-          buildozer_cmd: buildozer -v android debug
+          working-directory: .
        
       - name: Upload APK
         uses: actions/upload-artifact@v4
